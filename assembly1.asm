@@ -14,14 +14,14 @@
 	
 	main:
 		li $v0,4
-		la $a0, prompt
+		la $a0, prompt  # loading the string in prompt
 		syscall
 		
-		li $v0,5
+		li $v0,5  # taking integer input from the user
 		syscall
-		sw $v0,n1
+		sw $v0,n1  # storing the integer value stored in $v0 into the variable n1
 		
-		li $v0,5
+		li $v0,5 # again taking integer input
 		syscall
 		sw $v0,n2
 		
@@ -33,12 +33,12 @@
 		la $a0,p1
 		syscall
 		
-		li $v0,1
+		li $v0,1  # displaying the integer
 		lw $a0,n1
 		syscall
 		
 		li $v0,4
-		la $a0,newLine
+		la $a0,newLine  # displaying new-line
 		syscall
 		
 		li $v0,4
@@ -49,14 +49,14 @@
 		lw $a0,n2
 		syscall
 		
-		lw $a1,n1
-		lw $a2,n2
+		lw $a1,n1  # 'a' registers are basically arguments of functions/procedures
+		lw $a2,n2   # $a0 is used for printing integers, characters and strings
 		
 		li $v0,4
 		la $a0,newLine
 		syscall
 		
-		jal swap # function call/procedure call
+		jal swap # function call/procedure call -> jump and link(jal) swap
 		
 		li $v0,4
 		la $a0,result
@@ -95,7 +95,7 @@
 		
 	swap:
 	
-		li $t0,0
+		li $t0,0  # immediately loading the value 0 into register $t0
 		
 		move $t0,$a1  # swapping takes place here!!
 		move $a1,$a2
